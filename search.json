@@ -1,0 +1,394 @@
+[
+  {
+    "objectID": "schedule/slides/presentations.html#meta-lecture",
+    "href": "schedule/slides/presentations.html#meta-lecture",
+    "title": "UBC Stat550",
+    "section": "Model selection and overfitting",
+    "text": "Model selection and overfitting\nStat 550\nSon Luu\n\n\\[\n\\DeclareMathOperator*{\\argmin}{argmin}\n\\DeclareMathOperator*{\\argmax}{argmax}\n\\DeclareMathOperator*{\\minimize}{minimize}\n\\DeclareMathOperator*{\\maximize}{maximize}\n\\DeclareMathOperator*{\\find}{find}\n\\DeclareMathOperator{\\st}{subject\\,\\,to}\n\\newcommand{\\E}{E}\n\\newcommand{\\Expect}[1]{\\E\\left[ #1 \\right]}\n\\newcommand{\\Var}[1]{\\mathrm{Var}\\left[ #1 \\right]}\n\\newcommand{\\Cov}[2]{\\mathrm{Cov}\\left[#1,\\ #2\\right]}\n\\newcommand{\\given}{\\mid}\n\\newcommand{\\X}{\\mathbf{X}}\n\\newcommand{\\x}{\\mathbf{x}}\n\\newcommand{\\y}{\\mathbf{y}}\n\\newcommand{\\P}{\\mathcal{P}}\n\\newcommand{\\R}{\\mathbb{R}}\n\\newcommand{\\norm}[1]{\\left\\lVert #1 \\right\\rVert}\n\\newcommand{\\snorm}[1]{\\lVert #1 \\rVert}\n\\newcommand{\\tr}[1]{\\mbox{tr}(#1)}\n\\newcommand{\\U}{\\mathbf{U}}\n\\newcommand{\\D}{\\mathbf{D}}\n\\newcommand{\\V}{\\mathbf{V}}\n\\]"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#structure",
+    "href": "schedule/slides/presentations.html#structure",
+    "title": "UBC Stat550",
+    "section": "Structure",
+    "text": "Structure\n\n\nModel selection\n\n\n\nUnderfitting and overfitting\n\n\n\nValidation set and cross-validation"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#genre",
+    "href": "schedule/slides/presentations.html#genre",
+    "title": "UBC Stat550",
+    "section": "Genre",
+    "text": "Genre\nTalks take many forms (like papers)\n\nDepartment seminar\nShort conference presentation\nClass lecture\n...\n\nCalibrate your talk to the Genre and the Audience\n\n\nA job talk takes much more work than a class presentation\nFor context, after much practice, it takes me about 1 hour per minute of presentation length, depending on the amount of polish.\nMy course lectures take about 4x the target duration.\nGeneral ideas are the same for all styles."
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#audience",
+    "href": "schedule/slides/presentations.html#audience",
+    "title": "UBC Stat550",
+    "section": "Audience",
+    "text": "Audience\n\nThink about who you are talking to\n\nStatisticians?\nStudents?\nPotential employer?\nPeople with PhD’s but in other disciplines?\nYour grandma?\n\nRegardless of the audience, I think of dividing the talk roughly in 3rds."
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#your-audience-for-your-in-class-talk",
+    "href": "schedule/slides/presentations.html#your-audience-for-your-in-class-talk",
+    "title": "UBC Stat550",
+    "section": "(Your audience for your in-class talk)",
+    "text": "(Your audience for your in-class talk)\n\n2/3 of the time, the client.\nYou’re teaching them this topic.\nThink “someone who took 1 or 2 classes in statistics”\n1/3 of the time, your classmates.\nWhat are the details they need to know that they don’t know?\nThink carefully how to structure for that breakdown."
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#content",
+    "href": "schedule/slides/presentations.html#content",
+    "title": "UBC Stat550",
+    "section": "Content",
+    "text": "Content\nEach part is a little mini-talk\n\nStarts with the general idea\nDevelops a few details. Strategy: problem/solution or question/answer\nEnds with a takeaway\n\nBut these parts are recalibrated to the audience.\n\nYour Grandma doesn’t want to see math.\nYour employer might, but doesn’t want to hear about \\(\\sigma\\)-fields.\nStatisticians don’t want to see proofs (but might want a sketch).\n..."
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#story-structure",
+    "href": "schedule/slides/presentations.html#story-structure",
+    "title": "UBC Stat550",
+    "section": "Story structure",
+    "text": "Story structure\n\n\n\n\n\n\nWhat I often see…\n\n\nOnce upon a time, a young MSc student went into the woods of theory and found some trees.\nFirst they looked at one tree, it was oak.\nThen the looked at the next tree, it was maple.\nThen they wondered if trees could talk.\nAfter three months of wandering, they saw a house…\n\n\n\n\n\n\n\n\n\n\nThe attention grabber\n\n\nAxe-wielding woodsman saves student from wolf attack!"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#better-structure",
+    "href": "schedule/slides/presentations.html#better-structure",
+    "title": "UBC Stat550",
+    "section": "Better structure",
+    "text": "Better structure\n\n(Enough details to give the headline.)\nHeadline result.\nHow do we know the result is real. What are the details of computation, inference, methodology.\nDemonstration with empirics."
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#you-should-consider",
+    "href": "schedule/slides/presentations.html#you-should-consider",
+    "title": "UBC Stat550",
+    "section": "You should consider…",
+    "text": "You should consider…\n\nAttention span diminishes quickly.\nWhat are the 3-5 takeaways?\nHit your main result at the beginning: this is what I can do that I couldn’t before."
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#the-ideal-map",
+    "href": "schedule/slides/presentations.html#the-ideal-map",
+    "title": "UBC Stat550",
+    "section": "The ideal map",
+    "text": "The ideal map\nMap out what you’ve done.\n\nWhat did you find?\nWhat are the implications?\nWhy does audience care?\nHow do we do it?\n\n\nAvoid wandering in the wilderness:\n\nFirst we did this;\nBut that didn’t work, so we tried …\nBut then we added …\nFinally we got to the beach …\nAnd the water was nice …"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#words",
+    "href": "schedule/slides/presentations.html#words",
+    "title": "UBC Stat550",
+    "section": "Words",
+    "text": "Words\n\n\nToo many words on a slide is bad\n\nBullet points\nToo densely concentrated are bad\nAre bad\nAre hard to focus on\n\n\nEmpty space is your friend\n\nLorem markdownum et moras et ponendi odores, neu magna per! Tyria meo iungitur videt, frigore terras rogis Anienis poteram, dant. His vallem arma corpore vident nunc nivibus avus, dea. Spatium luce certa cupiunt, lina. Amabam opem, Iovis fecundaque et parum.\nAede virum annis audit modo: meus ramis videri: nec quod insidiisque Aonio tenuem, AI. Trames Iason: nocent hortatus lacteus praebita paternos petit, Paridis aptus prius ut origo furiisque. Mercibus sis nullo aliudve Amathunta sufficit ululatibus, praevalidusque segnis et Dryopen."
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#images",
+    "href": "schedule/slides/presentations.html#images",
+    "title": "UBC Stat550",
+    "section": "Images",
+    "text": "Images\n\n\nPictures are good\n\nFlow charts are good.\n\nCareful use of colour is good.\n\nSize is good.\n\ntoo much variation is distracting\n\n\n\n\n\nHow long did you stare at the cat?"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#graphics",
+    "href": "schedule/slides/presentations.html#graphics",
+    "title": "UBC Stat550",
+    "section": "Graphics",
+    "text": "Graphics\n\n\n\n\n\n\n\n\nImportant\n\n\nDefaults are almost always terrible."
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#issues-with-the-preceding",
+    "href": "schedule/slides/presentations.html#issues-with-the-preceding",
+    "title": "UBC Stat550",
+    "section": "Issues with the preceding",
+    "text": "Issues with the preceding\n\nColours are awful\nGrey background is distracting\nText size is too small\nLegend position on the side is strange?\nNumbers on the y-axis are nonesense\nWith barchart, y-axis should start at 0.\n.png vs .svg"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#graphics-1",
+    "href": "schedule/slides/presentations.html#graphics-1",
+    "title": "UBC Stat550",
+    "section": "Graphics",
+    "text": "Graphics"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#again",
+    "href": "schedule/slides/presentations.html#again",
+    "title": "UBC Stat550",
+    "section": "Again",
+    "text": "Again\n\n\n\n\n\n\n\nTip\n\n\nI like this, but ~10% of men are colour blind (including some faculty in this department)."
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#simulation",
+    "href": "schedule/slides/presentations.html#simulation",
+    "title": "UBC Stat550",
+    "section": "Simulation",
+    "text": "Simulation"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#jargon",
+    "href": "schedule/slides/presentations.html#jargon",
+    "title": "UBC Stat550",
+    "section": "Jargon",
+    "text": "Jargon\n\nBe wary of acronyms (MLE, BLUP, RKHS)\nAgain, think of your audience. MLE is fine for any statistician.\nOthers need definitions in words and written on the slide\nSame for math notation \\(\\bar{X},\\ \\mu,\\ \\sigma,\\ \\mathbf{UDV}^\\top\\)\nAnd for applied work e.g. SNP\nBest Linear Unbiased Predictor"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#things-i-hate",
+    "href": "schedule/slides/presentations.html#things-i-hate",
+    "title": "UBC Stat550",
+    "section": "Things I hate",
+    "text": "Things I hate\n Saying “I’m not going to talk about …”  “I’m happy to discuss … later if you’d like”.\n Wiggling your laser pointer at every word. Highlight important things with pretty colours. Use pointer sparingly.\n Playing with your collar, your pockets, your water bottle…\n Staring at your slides …\n Displaying the total number of slides as in 6/85 in the lower right hand corner …\n Running over time. Skipping 6 slides to desperately make the time limit.\n Using the default themes:"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#never-use-tables-of-numbers",
+    "href": "schedule/slides/presentations.html#never-use-tables-of-numbers",
+    "title": "UBC Stat550",
+    "section": "Never use tables of numbers",
+    "text": "Never use tables of numbers\n\nEconomists do this all the time for inexplicable reasons\nI rarely put these in papers either\nIf I’m not going to talk about it, it doesn’t go on the slide\nThere’s no way I’m going to read off the number, certainly not to 4 decimal places\nUse a graph"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#use-graphs-but",
+    "href": "schedule/slides/presentations.html#use-graphs-but",
+    "title": "UBC Stat550",
+    "section": "Use graphs, but",
+    "text": "Use graphs, but\n\nA graph with 3 dots should be a table of 3 numbers.\nBut why do you have only 3 numbers?\nAny table can be a better graph.\n\n\n\n\n\n\n\nAsk yourself:\n\n\nIs this the best way to display the data? Have I summarized too much?"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#example-made-up-simulation-results",
+    "href": "schedule/slides/presentations.html#example-made-up-simulation-results",
+    "title": "UBC Stat550",
+    "section": "Example: Made up simulation results",
+    "text": "Example: Made up simulation results\nRan 50 simulations."
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#example-made-up-simulation-results-1",
+    "href": "schedule/slides/presentations.html#example-made-up-simulation-results-1",
+    "title": "UBC Stat550",
+    "section": "Example: Made up simulation results",
+    "text": "Example: Made up simulation results\nRan 50 simulations."
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#example-made-up-simulation-results-2",
+    "href": "schedule/slides/presentations.html#example-made-up-simulation-results-2",
+    "title": "UBC Stat550",
+    "section": "Example: Made up simulation results",
+    "text": "Example: Made up simulation results\nRan 50 simulations."
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#things-you-should-do",
+    "href": "schedule/slides/presentations.html#things-you-should-do",
+    "title": "UBC Stat550",
+    "section": "Things you should do",
+    "text": "Things you should do\n Number your slides\n Have lots of prepared backup slides (details, answers to potential questions, further analysis)\n Practice a lot. Practice in front of others. Practice the beginning more than the rest.\n BE EXCITED. You worked hard on this. All results are cool. Play them up. You did something good and you want to tell everyone about how awesome you are. Own it.\n Take credit. Say “I showed this” not “It can be shown”."
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#things-that-are-debatable",
+    "href": "schedule/slides/presentations.html#things-that-are-debatable",
+    "title": "UBC Stat550",
+    "section": "Things that are debatable",
+    "text": "Things that are debatable\n\nMath talks tend to be “chalkboard”\nCS talks tend to be “sales pitch”\nStats is in the middle.\nI lean toward details with elements of salesmanship\nIf I hear your talk, I want to be able to “do” what you created. This is hard without some math.\nThis also colours my decisions about software.\n\n\n\n\n\n\n\n\nNote\n\n\nJeff Bezos banned Powerpoint from Amazon presentations"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#closing-suggestions",
+    "href": "schedule/slides/presentations.html#closing-suggestions",
+    "title": "UBC Stat550",
+    "section": "Closing suggestions",
+    "text": "Closing suggestions\n1. Slow down\n\nGet a bottle of water before the talk.\nDrink it to pause on (pre-planned) key slides.\nThis will help you relax.\nIt will also give the audience a few seconds to get the hard stuff into their head.\n\n2. Cut back\n\nMost of your slides probably have too many words.\nAnd too much “filler” –&gt; Kill the filler"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#closing-suggestions-1",
+    "href": "schedule/slides/presentations.html#closing-suggestions-1",
+    "title": "UBC Stat550",
+    "section": "Closing suggestions",
+    "text": "Closing suggestions\n3. Try to move\n\nIt’s good to move physically, engage the audience\nTry to make eye contact with the whole room\nRecord yourself once to see if you do anything extraneous\n\n4. Have fun."
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#example-talks",
+    "href": "schedule/slides/presentations.html#example-talks",
+    "title": "UBC Stat550",
+    "section": "Example talks:",
+    "text": "Example talks:\n\nTeaching PCA\nShort research talk about Latent Infections\n\n\n\nUBC Stat 550 - 2024"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#statistical-model",
+    "href": "schedule/slides/presentations.html#statistical-model",
+    "title": "UBC Stat550",
+    "section": "Statistical model",
+    "text": "Statistical model\nRepresents assumptions about data generation process\nOften includes parameters to be estimated\n\nLinear: \\(y = ax + b + \\epsilon\\)\nLogistic: \\(P(y=0) = \\frac{1}{1+e^{ax+b}}\\)\n...\n\n\nThe real world is too complicated\n\n\n\\(\\Rightarrow\\) All models are wrong\n\n\n\\(\\Rightarrow\\) Choose the best fitting one"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#shades-of-modelling",
+    "href": "schedule/slides/presentations.html#shades-of-modelling",
+    "title": "UBC Stat550",
+    "section": "50 shades of modelling",
+    "text": "50 shades of modelling"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#different-shades-of-modelling",
+    "href": "schedule/slides/presentations.html#different-shades-of-modelling",
+    "title": "UBC Stat550",
+    "section": "Different shades of modelling",
+    "text": "Different shades of modelling"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#bal",
+    "href": "schedule/slides/presentations.html#bal",
+    "title": "UBC Stat550",
+    "section": "bal",
+    "text": "bal"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#model-fit",
+    "href": "schedule/slides/presentations.html#model-fit",
+    "title": "UBC Stat550",
+    "section": "Model fit",
+    "text": "Model fit\nQ: How do you quantify “best” fit?\n\n\nA: By the mean squared error (MSE) between estimated and true value for new data\nFor prediction \\[\\text{MSE} = E(\\hat{y}-y)^2\\] For inference \\[\\text{MSE} = E(\\hat{\\theta}-\\theta)^2\\]"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#bias-variance-breakdown",
+    "href": "schedule/slides/presentations.html#bias-variance-breakdown",
+    "title": "UBC Stat550",
+    "section": "Bias-variance breakdown",
+    "text": "Bias-variance breakdown\nMSE can be broken down into\n\n\\[\\begin{align}\n  \\text{MSE} = \\underbrace{Var(\\hat{y})}_{\\text{Variance}} + \\underbrace{(E(\\hat{y})-y)^2}_{\\text{Bias}^2} + \\underbrace{\\sigma^2}_{\\text{Noise}}\n\\end{align}\\]\n\nBias: error due to model not being able to capture the truth\nVariance: error due to sensitivity to noise in data\n\n\nProblem: Bias and variance terms depend on true value which is unknown at training time"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#underfitting-and-overfitting-1",
+    "href": "schedule/slides/presentations.html#underfitting-and-overfitting-1",
+    "title": "UBC Stat550",
+    "section": "Underfitting and overfitting",
+    "text": "Underfitting and overfitting\nModel complexity affects both bias and variance\n\nUnderfitting:\n\nModel too simple to capture the underlying truth\nEstimate tends to have high bias, low variance\n\nOverfitting:\n\nModel too complex leading to noise sensitivity\nEstimate tends to have low bias, high variance\n\n\n\nOverfitting is harder to detect and therefore more problematic"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#bias-variance-trade-off",
+    "href": "schedule/slides/presentations.html#bias-variance-trade-off",
+    "title": "UBC Stat550",
+    "section": "Bias-variance trade-off",
+    "text": "Bias-variance trade-off"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#bias-variance-trade-off-1",
+    "href": "schedule/slides/presentations.html#bias-variance-trade-off-1",
+    "title": "UBC Stat550",
+    "section": "Bias-variance trade-off",
+    "text": "Bias-variance trade-off"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#bias-variance-trade-off-cont",
+    "href": "schedule/slides/presentations.html#bias-variance-trade-off-cont",
+    "title": "UBC Stat550",
+    "section": "Bias-variance trade-off (cont)",
+    "text": "Bias-variance trade-off (cont)"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#validation-set",
+    "href": "schedule/slides/presentations.html#validation-set",
+    "title": "UBC Stat550",
+    "section": "Validation set",
+    "text": "Validation set\nA part of the data used to evaluate model performance before applying to new data\n\nProcedure\n\nRandomly split the data into train set and validation set\nFit model using train set\nEvaluate model fit using validation set\nUse the evaluation to inform hyperparameter choices\nFit the final model on both sets using the model with best validation fit"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#cross-validation",
+    "href": "schedule/slides/presentations.html#cross-validation",
+    "title": "UBC Stat550",
+    "section": "Cross-validation",
+    "text": "Cross-validation\nProblem: a single validation set may not represent the data well\n\nSolution:\n\nDo it again with a different split\nUse average performance across splits as model fit\n\n\n\nK-fold: use 1/k th of the data as validation each split\nLeave one out: use 1 data point as validation each split"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#visualization",
+    "href": "schedule/slides/presentations.html#visualization",
+    "title": "UBC Stat550",
+    "section": "Visualization",
+    "text": "Visualization"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#takeaways",
+    "href": "schedule/slides/presentations.html#takeaways",
+    "title": "UBC Stat550",
+    "section": "Takeaways",
+    "text": "Takeaways\n\nModels should balance between bias and variance for best fit\n\nValidation set can help evaluate model performance\n\nCross-validation averages performance across different splits for better consistency"
+  },
+  {
+    "objectID": "schedule/slides/presentations.html#references",
+    "href": "schedule/slides/presentations.html#references",
+    "title": "UBC Stat550",
+    "section": "References",
+    "text": "References\n\nPoints of significance: model selection and overfitting, Jake Lever, Martin Krzywinski, Naomi Altman (2016), Nature methods.\n\nAn introduction to statistical learning, Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani (2013), Springer\n\nThe Elements of Statistical Learning, Trevor Hastie, Robert Tibshirani, Jerome Friedman (2009), Springer\n\n\nUBC Stat 550 - 2024"
+  },
+  {
+    "objectID": "schedule/slides/html.html#structure",
+    "href": "schedule/slides/html.html#structure",
+    "title": "UBC Stat550",
+    "section": "Structure",
+    "text": "Structure\n\n\nModel selection\n\n\n\nUnderfitting and overfitting\n\n\n\nValidation set and cross-validation"
+  },
+  {
+    "objectID": "schedule/slides/html.html#statistical-model",
+    "href": "schedule/slides/html.html#statistical-model",
+    "title": "UBC Stat550",
+    "section": "Statistical model",
+    "text": "Statistical model\nRepresents assumptions about data generation process\nOften includes parameters to be estimated\n\nLinear: \\(y = ax + b + \\epsilon\\)\nLogistic: \\(P(y=0) = \\frac{1}{1+e^{ax+b}}\\)\n...\n\n\nThe real world is too complicated\n\n\n\\(\\Rightarrow\\) All models are wrong\n\n\n\\(\\Rightarrow\\) Choose the best fitting one"
+  },
+  {
+    "objectID": "schedule/slides/html.html#model-fit",
+    "href": "schedule/slides/html.html#model-fit",
+    "title": "UBC Stat550",
+    "section": "Model fit",
+    "text": "Model fit\nQ: How do you quantify “best” fit?\n\n\nA: By the mean squared error (MSE) between estimated and true value for new data\nFor prediction \\[\\text{MSE} = E(\\hat{y}-y)^2\\] For inference \\[\\text{MSE} = E(\\hat{\\theta}-\\theta)^2\\]"
+  },
+  {
+    "objectID": "schedule/slides/html.html#bias-variance-breakdown",
+    "href": "schedule/slides/html.html#bias-variance-breakdown",
+    "title": "UBC Stat550",
+    "section": "Bias-variance breakdown",
+    "text": "Bias-variance breakdown\nMSE can be broken down into\n\n\\[\\begin{align}\n  \\text{MSE} = \\underbrace{Var(\\hat{y})}_{\\text{Variance}} + \\underbrace{(E(\\hat{y})-y)^2}_{\\text{Bias}^2} + \\underbrace{\\sigma^2}_{\\text{Noise}}\n\\end{align}\\]\n\nBias: error due to model not being able to capture the truth\nVariance: error due to sensitivity to noise in data\n\n\nProblem: Bias and variance terms depend on true value which is unknown at training time"
+  },
+  {
+    "objectID": "schedule/slides/html.html#underfitting-and-overfitting-1",
+    "href": "schedule/slides/html.html#underfitting-and-overfitting-1",
+    "title": "UBC Stat550",
+    "section": "Underfitting and overfitting",
+    "text": "Underfitting and overfitting\nModel complexity affects both bias and variance\n\nUnderfitting:\n\nModel too simple to capture the underlying truth\nEstimate tends to have high bias, low variance\n\nOverfitting:\n\nModel too complex leading to noise sensitivity\nEstimate tends to have low bias, high variance\n\n\n\nOverfitting is harder to detect and therefore more problematic"
+  },
+  {
+    "objectID": "schedule/slides/html.html#bias-variance-trade-off",
+    "href": "schedule/slides/html.html#bias-variance-trade-off",
+    "title": "UBC Stat550",
+    "section": "Bias-variance trade-off",
+    "text": "Bias-variance trade-off"
+  },
+  {
+    "objectID": "schedule/slides/html.html#bias-variance-trade-off-cont",
+    "href": "schedule/slides/html.html#bias-variance-trade-off-cont",
+    "title": "UBC Stat550",
+    "section": "Bias-variance trade-off (cont)",
+    "text": "Bias-variance trade-off (cont)"
+  },
+  {
+    "objectID": "schedule/slides/html.html#validation-set",
+    "href": "schedule/slides/html.html#validation-set",
+    "title": "UBC Stat550",
+    "section": "Validation set",
+    "text": "Validation set\nA part of the data used to evaluate model performance before applying to new data\n\nProcedure\n\nRandomly split the data into train set and validation set\nFit model using train set\nEvaluate model fit using validation set\nUse the evaluation to inform hyperparameter choices\nFit the final model on both sets using the model with best validation fit"
+  },
+  {
+    "objectID": "schedule/slides/html.html#cross-validation",
+    "href": "schedule/slides/html.html#cross-validation",
+    "title": "UBC Stat550",
+    "section": "Cross-validation",
+    "text": "Cross-validation\nProblem: a single validation set may not represent the data well\n\nSolution:\n\nDo it again with a different split\nUse average performance across splits as model fit\n\n\n\nK-fold: use 1/k th of the data as validation each split\nLeave one out: use 1 data point as validation each split"
+  },
+  {
+    "objectID": "schedule/slides/html.html#visualization",
+    "href": "schedule/slides/html.html#visualization",
+    "title": "UBC Stat550",
+    "section": "Visualization",
+    "text": "Visualization"
+  },
+  {
+    "objectID": "schedule/slides/html.html#takeaways",
+    "href": "schedule/slides/html.html#takeaways",
+    "title": "UBC Stat550",
+    "section": "Takeaways",
+    "text": "Takeaways\n\nModels should balance between bias and variance for best fit\n\nValidation set can help evaluate model performance\n\nCross-validation averages performance across different splits for better consistency"
+  },
+  {
+    "objectID": "schedule/slides/html.html#references",
+    "href": "schedule/slides/html.html#references",
+    "title": "UBC Stat550",
+    "section": "References",
+    "text": "References\n\nPoints of significance: model selection and overfitting, Jake Lever, Martin Krzywinski, Naomi Altman (2016), Nature methods.\n\nAn introduction to statistical learning, Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani (2013), Springer\n\nThe Elements of Statistical Learning, Trevor Hastie, Robert Tibshirani, Jerome Friedman (2009), Springer\n\n\nUBC Stat 550 - 2024"
+  }
+]
